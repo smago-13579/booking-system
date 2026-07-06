@@ -1,0 +1,40 @@
+services:
+  postgres-db:
+    image: postgres:latest
+    container_name: booking-database
+    ports:
+      - "6432:5432"
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: booking
+    deploy:
+      resources:
+        limits:
+          cpus: "1.0"
+          memory: 1G
+    networks:
+      - booking-network
+
+  booking-app:
+    image: booking-main
+    build:
+      dockerfile: Dockerfile
+    container_name: booking-app
+    ports:
+      - "8080:8080"
+    restart: always
+    deploy:
+      resources:
+        limits:
+          cpus: "1.0"
+          memory: 1G
+    networks:
+      - booking-network
+
+
+networks:
+  booking-network:
+    external: true
+    driver: bridge
