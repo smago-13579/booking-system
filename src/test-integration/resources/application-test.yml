@@ -1,0 +1,9 @@
+spring:
+  jpa:
+    show-sql: true
+
+logging:
+  level:
+    liquibase.executor: DEBUG
+    org.hibernate.sql: DEBUG
+    org.hibernate.orm.jdbc.bind: TRACE
