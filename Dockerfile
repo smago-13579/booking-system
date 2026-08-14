@@ -4,7 +4,7 @@ LABEL org.opencontainers.image.authors="Sultan Alibekov <sultan-13579@yandex.ru>
 
 EXPOSE 8080
 
-ENV PROJECT_NAME booking-system.jar
+ENV PROJECT_NAME=booking-system.jar
 
 COPY ./target/${PROJECT_NAME} /app/
 

@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: booking-system
+
+  datasource:
+    url: ${POSTGRES_URL:jdbc:postgresql://localhost:6432/booking}
+    username: ${POSTGRES_USER:postgres}
+    password: ${POSTGRES_PASS:postgres}
+  liquibase:
+    change-log: classpath:db/changelog/changelog-master.yaml
